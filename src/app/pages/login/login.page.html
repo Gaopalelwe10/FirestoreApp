@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <form [formGroup]="loginForm">
+
+            <ion-item>
+                <ion-label position="stacked">Email Label</ion-label>
+                <ion-input type="email" formControlName="email" placeholder="Email address"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Password</ion-label>
+                <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+            </ion-item><br>
+            <ion-button expand="block" (click)="login()" color="tertiary">login</ion-button>
+
+        </form>
+    </ion-list>
+    <p [routerDirection]="'forward'" [routerLink]="['/signup']" class="center"> Dont have account? Sign Up</p>
+    <!-- <ion-button expand="block" [routerDirection]="'forward'" [routerLink]="['/signup']">Register</ion-button> -->
+    <br>
+    <!-- <ion-button expand="block" [routerDirection]="'forward'" [routerLink]="['/google']">Google</ion-button> -->
+
+    <!-- <ion-grid>
+            <ion-row>
+                <ion-col col-6>
+                    <ion-button (click)="googleLogin()" expand="block">
+                        <ion-icon name="logo-google"></ion-icon>
+                        Google</ion-button>
+
+                </ion-col>
+
+                <ion-col col-6>
+                    <ion-button (click)="Facebook()" expand="block">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                        Facebook</ion-button>
+
+                </ion-col>
+                <ion-col col-6>
+                    <ion-button (click)="Twitter()" expand="block">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                        Twitter</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid> -->
+
+    <table>
+        <tr>
+            <td>
+                <ion-icon name="logo-googleplus" class="circle-icon" (click)="googleLogin()" color="light"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="logo-facebook" class="circle-icon" (click)="Facebook()" color="light"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="logo-twitter" class="circle-icon" (click)="Twitter()" color="light"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="call" class="circle-icon" [routerDirection]="'forward'" [routerLink]="['/google']" color="light"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="logo-github" class="circle-icon" (click)="Github()" color="light"></ion-icon>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <!-- <div [hidden]="user">
+            <ion-label>Sign In with Your Phone Number</ion-label>
+            <ion-item>
+                <ion-label position="stacked">Number</ion-label>
+                <ion-input [(ngModel)]="phoneNumber.number" placeholder="+2711155551" maxlength="12"></ion-input>
+            </ion-item>
+
+
+
+            <div id="recaptcha-container"></div>
+
+            <ion-button expand="block" (click)="sendLoginCode()">
+                <ion-icon name="call" slot="end"></ion-icon>SMS Text Login Code</ion-button>
+
+
+
+            <div *ngIf="windowRef.confirmationResult">
+                <hr>
+                <label for="code">Enter your Verification Code Here</label>
+                <ion-item>
+
+                    <ion-input type="email" [(ngModel)]="verificationCode" class="input" maxlength="12"></ion-input>
+                </ion-item>
+                <ion-button expand="block" (click)="verifyLoginCode()">Verify</ion-button>
+
+
+            </div>
+
+        </div>
+
+        <div *ngIf="user">
+            You have successfully logged in with your phone number! UserId: {{ user?.uid }}
+
+        </div> -->
+
+</ion-content>

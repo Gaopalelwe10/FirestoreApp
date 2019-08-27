@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>signup</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-padding">
+        <ion-list>
+            <form [formGroup]="person">
+
+                <ion-item>
+                    <ion-label position="stacked">Email</ion-label>
+                    <ion-input type="email" formControlName="email" placeholder="Email address"></ion-input>
+                </ion-item>
+                <div *ngIf="person.controls.email.invalid && person.controls.email.dirty">
+                </div>
+                <div class="error" *ngIf="person.get('email').hasError('required') && person.get('email').touched">
+                    Please input your email
+                </div>
+                <div class="error" *ngIf="person.get('email').hasError('pattern') && person.get('email').touched">
+                    Email address invalid
+                </div>
+                <ion-item>
+                    <ion-label position="stacked">Password</ion-label>
+                    <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+                </ion-item>
+                <div *ngIf="person.controls.password.invalid && person.controls.password.dirty">
+                </div>
+
+                <div class="error" *ngIf="person.get('password').hasError('required') && person.get('password').touched">
+                    Please input your password
+                </div>
+
+                <div class="error" *ngIf="person.get('password').hasError('minlength') && person.get('password').touched">
+                    Minimum 6 characters
+                </div>
+
+                <div class="error" *ngIf="person.get('password').hasError('maxlength') && person.get('password').touched">
+                    Maximum 12 characters
+                </div>
+                <!-- <ion-item>
+
+                <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+            </ion-item>
+            <div *ngIf="person.controls.name.invalid && person.controls.name.dirty">
+            </div>
+            <div class="error" *ngIf="person.get('name').hasError('minlength') && person.get('name').touched">
+                Minimum 4 characters
+            </div>
+            <div class="error" *ngIf="person.get('name').hasError('maxlength') && person.get('name').touched">
+                Maximum 30 characters
+            </div> -->
+
+            </form>
+            <br>
+            <ion-button expand="block" (click)="register(person)" color="tertiary">Sign Up</ion-button>
+
+        </ion-list>
+    </div>
+</ion-content>

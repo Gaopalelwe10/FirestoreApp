@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="tertiary" mode="ios">
+        <ion-title>
+            CRUD
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-item *ngFor="let grocery of groceryList | async">
+        {{grocery.name}} {{grocery.price}} {{grocery.type}}
+    </ion-item> -->
+
+    <!-- <ion-item *ngFor="let grocery of ItemsList" (click)="update()">
+        <ion-label> {{grocery.name}} {{grocery.price}} {{grocery.type}}</ion-label>
+    </ion-item> -->
+    <br>
+
+
+
+    <div *ngIf="user">
+        User: {{ user }}
+    </div>
+    <br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let item of ItemsList">
+            <td>{{item.name}}</td>
+            <td> R{{item.price}}</td>
+            <td>{{item.type}}</td>
+            <td>
+                <ion-icon name="refresh-circle" (click)="update(item)" color="tertiary"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="close" (click)="delete(item)" color="tertiary"></ion-icon>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <ion-button expand="full" (click)="add()" color="tertiary">ADD</ion-button>
+    <ion-button expand="full" (click)="logOut()" color="tertiary">logout</ion-button>
+
+    <!-- <ion-button shape="round" color="tertiary" (click)="update()">update</ion-button> -->
+</ion-content>
